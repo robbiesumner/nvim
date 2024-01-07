@@ -8,9 +8,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- set up plug-ins
 require("lazy").setup({
-    "wbthomason/packer.nvim",
-
+    -- colorscheme
     {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -19,6 +19,7 @@ require("lazy").setup({
         end
     },
 
+    -- fuzzy finder
     {
         "nvim-telescope/telescope.nvim",
         version = "0.1.5",
@@ -26,6 +27,7 @@ require("lazy").setup({
         dependencies = { { "nvim-lua/plenary.nvim" } }
     },
 
+    -- simplify lsp setup
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
