@@ -11,11 +11,17 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 -- set up plug-ins
 require("lazy").setup({
     -- colorscheme
+    --{
+    --    "catppuccin/nvim",
+    --    name = "catppuccin",
+    --    config = function()
+    --        vim.cmd("colorscheme catppuccin")
+    --    end
+    --},
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "folke/tokyonight.nvim",
         config = function()
-            vim.cmd("colorscheme catppuccin")
+            vim.cmd("colorscheme tokyonight-storm")
         end
     },
 
