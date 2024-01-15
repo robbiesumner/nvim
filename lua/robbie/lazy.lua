@@ -8,48 +8,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
--- set up plug-ins
-require("lazy").setup({
-    -- colorscheme
-    --{
-    --    "catppuccin/nvim",
-    --    name = "catppuccin",
-    --    config = function()
-    --        vim.cmd("colorscheme catppuccin")
-    --    end
-    --},
-    {
-        "folke/tokyonight.nvim",
-        config = function()
-            vim.cmd("colorscheme tokyonight-storm")
-        end
-    },
-
-    -- fuzzy finder
-    {
-        "nvim-telescope/telescope.nvim",
-        version = "0.1.5",
-        -- or                            , branch = "0.1.x",
-        dependencies = { { "nvim-lua/plenary.nvim" } }
-    },
-
-    -- simplify lsp setup
-    {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v3.x",
-        dependencies = {
-            --- Uncomment these if you want to manage the language servers from neovim
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
-
-            -- LSP Support
-            { "neovim/nvim-lspconfig" },
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "L3MON4D3/LuaSnip" },
-        }
-    },
-
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-})
+-- set up plug-ins: /lua/robbie/plugins/*.lua
+require("lazy").setup("robbie.plugins")
