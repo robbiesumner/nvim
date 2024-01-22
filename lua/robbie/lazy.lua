@@ -8,5 +8,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- has to be set before lazy is loaded
+vim.g.mapleader = " "
+
 -- set up plug-ins: /lua/robbie/plugins/*.lua
 require("lazy").setup("robbie.plugins")
