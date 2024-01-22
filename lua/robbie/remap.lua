@@ -20,3 +20,7 @@ keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
 keymap.set("n", "<C-j>", function() ui.nav_file(2) end)
 keymap.set("n", "<C-k>", function() ui.nav_file(3) end)
+
+
+-- git blame
+keymap.set("n", "<leader>gb", vim.cmd.GitBlameToggle)
