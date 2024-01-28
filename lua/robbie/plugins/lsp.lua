@@ -15,6 +15,9 @@ return {
         require("mason-lspconfig").setup {
             ensure_installed = { "pyright", "lua_ls", "gopls" },
         }
+        local cmp = require("cmp")
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 
         -- setup language servers
         -- no manual setup for every server required
@@ -23,7 +26,9 @@ return {
             -- and will be called for each installed server that doesn't have
             -- a dedicated handler.
             function(server_name) -- default handler (optional)
-                require("lspconfig")[server_name].setup {}
+                require("lspconfig")[server_name].setup {
+                    capabilities = capabilities,
+                }
             end,
 
             -- specific handlers
@@ -55,8 +60,6 @@ return {
         })
 
         -- setup completion
-        local cmp = require("cmp")
-
         cmp.setup {
             -- REQUIRED - must specify snippet engine
             snippet = {
@@ -69,10 +72,12 @@ return {
                 ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ["<C-y>"] = cmp.mapping.confirm({ select = true }),
             }),
-            sources = {
+            sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
-            },
+            }, {
+                { name = "buffer" },
+            }),
         }
     end
 }
