@@ -2,10 +2,12 @@ return {
     {
         "folke/tokyonight.nvim",
         config = function()
-            vim.cmd("colorscheme tokyonight-night")
+            require("tokyonight").setup({
+                style = "night",
+                transparent = true,
+            })
 
-            -- set transparent background
-            vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+            vim.cmd("colorscheme tokyonight")
         end
     }
 }
