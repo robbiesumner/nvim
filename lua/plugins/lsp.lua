@@ -33,6 +33,7 @@ return {
           -- ["lua_ls"] = function()
           -- require("lspconfig").lua_ls.setup {},
           -- ...
+          -- end
         end,
       })
 
