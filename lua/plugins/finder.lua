@@ -3,17 +3,8 @@ return {
 	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
-		require("telescope").setup({
-			extensions = {
-				fzf = {},
-			},
-		})
-
-		require("telescope").load_extension("fzf")
-
 		-- file search
 		vim.keymap.set("n", "<leader>fd", require("telescope.builtin").find_files)
 		-- grep

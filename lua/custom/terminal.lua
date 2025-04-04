@@ -1,3 +1,5 @@
+local M = {}
+
 local state = {
 	buf = -1,
 	win = -1,
@@ -36,7 +38,7 @@ local function create_floating_window(opts)
 	return { buf = buf, win = win }
 end
 
-local function toggle_floating_terminal()
+function M.toggle_floating_terminal()
 	if not vim.api.nvim_win_is_valid(state.win) then
 		state = create_floating_window({ buf = state.buf })
 		if vim.bo[state.buf].buftype ~= "terminal" then
@@ -57,12 +59,11 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	end,
 })
 
--- keymaps
-vim.keymap.set("n", "<leader>t", toggle_floating_terminal)
-vim.keymap.set("n", "<leader>st", function()
+function M.create_small_terminal()
 	vim.cmd.new()
 	vim.cmd.wincmd("J")
 	vim.cmd.term()
 	vim.api.nvim_win_set_height(0, 12)
-end)
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
+end
+
+return M
