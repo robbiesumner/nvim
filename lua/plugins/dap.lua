@@ -76,12 +76,12 @@ return {
 			"williamboman/mason.nvim",
 		},
 		config = function()
-			local dap_python = require("dap-python")
-
 			require("mason").setup()
-			local debugpypython_path = require("mason-registry").get_package("debugpy"):get_install_path()
+
+			local debugpypython_path = require("mason-registry").get_package("debugpy"):get_installed_version()
 				.. "/venv/bin/python"
-			dap_python.setup(debugpypython_path, {})
+
+			require("dap-python").setup(debugpypython_path, {})
 		end,
 	},
 }

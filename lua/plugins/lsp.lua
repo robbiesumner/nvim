@@ -24,16 +24,8 @@ return {
 			require("mason").setup()
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({ capabilities = capabilities })
-
-					-- dedicated custom handlers go here
-					-- ["lua_ls"] = function()
-					-- require("lspconfig").lua_ls.setup {},
-					-- ...
-					-- end
-				end,
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "pyright" },
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -58,6 +50,9 @@ return {
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references)
 					vim.keymap.set("n", "rn", vim.lsp.buf.rename)
+
+					-- diagnostics
+					vim.diagnostic.config({ virtual_text = true })
 				end,
 			})
 		end,
