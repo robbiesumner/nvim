@@ -1,13 +1,32 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
 vim.g.mapleader = " "
 
-vim.opt.spelllang = { "en", "de" }
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.scrolloff = 10
 
-vim.opt.scrolloff = 8
-vim.opt.colorcolumn = "80"
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
 
--- 4-space indent
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.o.smartindent = true
+vim.o.autoindent = true
+
+vim.schedule(function()
+  vim.o.clipboard = "unnamedplus"
+end)
+
+vim.o.undofile = true
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.o.inccommand = "split"
+
+vim.diagnostic.config({
+  severity_sort = true,
+  float = { border = "rounded", source = "if_many" },
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  virtual_text = true,
+  jump = { float = true },
+})
