@@ -11,7 +11,7 @@
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    mkNeovim = import ./lib/myNeovim.nix;
+    mkNeovim = import ./lib/mkNeovim.nix;
   in {
     packages = forAllSystems (
       system: {
@@ -27,16 +27,16 @@
         };
       }
     );
-    homeManagerModules.default = {
+    homeModules.nvim = {
       config,
       lib,
       pkgs,
       ...
     }: let
-      cfg = config.programs.custom-neovim;
+      cfg = config.programs.configured-neovim;
     in {
-      options.programs.custom-neovim = {
-        enable = lib.mkEnableOption "My custom neovim";
+      options.programs.configured-neovim = {
+        enable = lib.mkEnableOption "My configured neovim";
         supportJupyter = lib.mkOption {
           type = lib.types.bool;
           default = false;
