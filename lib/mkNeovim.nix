@@ -65,16 +65,15 @@
     withRuby = false;
     plugins = vimPlugins;
     customLuaRC = ''
-      vim.g.python3_host_prog = "${pythonEnv}/bin/python3"
-      vim.opt.runtimepath:prepend("${self}/")
-      vim.opt.runtimepath:append("${self}/after")
-      dofile("${self}/init.lua")
-
       vim.g.jupyter = ${
         if supportJupyter
         then "true"
         else "false"
       }
+      vim.g.python3_host_prog = "${pythonEnv}/bin/python3"
+      vim.opt.runtimepath:prepend("${self}/")
+      vim.opt.runtimepath:append("${self}/after")
+      dofile("${self}/init.lua")
     '';
   };
 in
