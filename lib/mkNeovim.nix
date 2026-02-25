@@ -13,6 +13,7 @@
       pyright
       yaml-language-server
       docker-language-server
+      docker-compose-language-service
       vscode-css-languageserver
       stylua
       alejandra

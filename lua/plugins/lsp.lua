@@ -1,3 +1,13 @@
+-- filetypes
+vim.filetype.add({
+  filename = {
+    ["docker-compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["compose.yaml"] = "yaml.docker-compose",
+  },
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
   callback = function(event)
@@ -31,6 +41,7 @@ local servers = {
   nixd = {},
   yamlls = {},
   docker_language_server = {},
+  docker_compose_language_service = {},
   cssls = {},
 }
 for name, server in pairs(servers) do
@@ -67,7 +78,6 @@ vim.lsp.config("lua_ls", {
     Lua = {},
   },
 })
-vim.lsp.enable("lua_ls")
 
 require("blink.cmp").setup({
   sources = {
