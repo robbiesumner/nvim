@@ -12,6 +12,7 @@
       nixd
       pyright
       yaml-language-server
+      docker-language-server
       vscode-css-languageserver
       stylua
       alejandra

@@ -30,6 +30,7 @@ local servers = {
   },
   nixd = {},
   yamlls = {},
+  docker_language_server = {},
   cssls = {},
 }
 for name, server in pairs(servers) do
