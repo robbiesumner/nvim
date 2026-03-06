@@ -1,4 +1,3 @@
-require("plugins.colorscheme")
 require("plugins.lualine")
 require("plugins.icons")
 require("plugins.image")
