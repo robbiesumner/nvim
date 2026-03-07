@@ -6,6 +6,7 @@ conform.setup({
     python = { "ruff" },
     nix = { "alejandra" },
     quarto = { "injected" },
+    qml = { "qmlformat" },
   },
   format_on_save = {
     lsp_format = "fallback",

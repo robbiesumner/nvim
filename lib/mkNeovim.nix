@@ -8,6 +8,8 @@
     [
       ripgrep
       tree-sitter
+
+      # lsp
       lua-language-server
       nixd
       pyright
@@ -15,9 +17,13 @@
       docker-language-server
       docker-compose-language-service
       vscode-css-languageserver
+      qt6.qtdeclarative
+
+      # formatter
       stylua
       alejandra
       ruff
+
       imagemagick
     ]
     ++ lib.optionals supportJupyter [
