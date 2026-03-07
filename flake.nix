@@ -43,14 +43,13 @@
         };
       };
       config = lib.mkIf cfg.enable {
-        programs.neovim = {
-          enable = true;
-          package = mkNeovim {
+        home.packages = [
+          (mkNeovim {
             inherit pkgs lib self;
             inherit (cfg) supportJupyter;
-          };
-          defaultEditor = true;
-        };
+          })
+        ];
+        home.sessionVariables.EDITOR = "nvim";
       };
     };
   };

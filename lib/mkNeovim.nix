@@ -46,6 +46,7 @@
 
   vimPlugins = with pkgs.vimPlugins;
     [
+      catppuccin-nvim
       nvim-lspconfig
       lazydev-nvim
       nvim-treesitter.withAllGrammars
