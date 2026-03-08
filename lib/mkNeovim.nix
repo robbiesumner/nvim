@@ -28,6 +28,7 @@
 
       # tools
       texliveMedium
+      biber
       zathura
 
       imagemagick
