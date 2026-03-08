@@ -1,4 +1,4 @@
-local filetypes = { "lua", "nix", "yaml", "dockerfile", "python", "markdown", "markdown_inline", "qml" }
+local filetypes = { "lua", "nix", "yaml", "dockerfile", "python", "markdown", "markdown_inline", "qml", "latex", "bibtex" }
 
 require("nvim-treesitter").install(filetypes)
 vim.api.nvim_create_autocmd("FileType", {

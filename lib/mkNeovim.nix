@@ -13,6 +13,7 @@
       lua-language-server
       nixd
       pyright
+      texlab
       yaml-language-server
       docker-language-server
       docker-compose-language-service
@@ -23,6 +24,11 @@
       stylua
       alejandra
       ruff
+      bibtex-tidy
+
+      # tools
+      texliveMedium
+      zathura
 
       imagemagick
     ]
@@ -59,6 +65,7 @@
       mini-icons
       which-key-nvim
       image-nvim
+      vimtex
     ]
     ++ lib.optionals supportJupyter [
       molten-nvim

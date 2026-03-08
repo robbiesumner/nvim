@@ -7,6 +7,8 @@ conform.setup({
     nix = { "alejandra" },
     quarto = { "injected" },
     qml = { "qmlformat" },
+    tex = { "latexindent" },
+    bib = { "bibtex-tidy" },
   },
   format_on_save = {
     lsp_format = "fallback",
