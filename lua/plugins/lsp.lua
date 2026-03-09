@@ -40,6 +40,7 @@ local servers = {
   },
   nixd = {},
   texlab = {},
+  tinymist = {},
   yamlls = {},
   docker_language_server = {},
   docker_compose_language_service = {},

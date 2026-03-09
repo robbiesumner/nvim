@@ -14,6 +14,7 @@
       nixd
       pyright
       texlab
+      tinymist
       yaml-language-server
       docker-language-server
       docker-compose-language-service
@@ -25,11 +26,13 @@
       alejandra
       ruff
       bibtex-tidy
+      typstyle
 
       # tools
       (texliveMedium.withPackages (p: with p; [exam needspace]))
       biber
       zathura
+      typst
 
       imagemagick
     ]

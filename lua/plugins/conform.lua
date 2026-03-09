@@ -9,6 +9,7 @@ conform.setup({
     qml = { "qmlformat" },
     tex = { "latexindent" },
     bib = { "bibtex-tidy" },
+    typst = { "typstyle" },
   },
   format_on_save = {
     lsp_format = "fallback",
