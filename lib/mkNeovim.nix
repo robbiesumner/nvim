@@ -27,7 +27,7 @@
       bibtex-tidy
 
       # tools
-      (texliveMedium.withPackages (p: [p.exam]))
+      (texliveMedium.withPackages (p: with p; [exam needspace]))
       biber
       zathura
 
