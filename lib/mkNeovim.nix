@@ -56,7 +56,6 @@
 
   vimPlugins = with pkgs.vimPlugins;
     [
-      catppuccin-nvim
       nvim-lspconfig
       lazydev-nvim
       nvim-treesitter.withAllGrammars
@@ -70,6 +69,7 @@
       which-key-nvim
       image-nvim
       vimtex
+      typst-preview-nvim
     ]
     ++ lib.optionals supportJupyter [
       molten-nvim
