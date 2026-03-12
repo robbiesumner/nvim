@@ -45,7 +45,9 @@ local servers = {
   docker_language_server = {},
   docker_compose_language_service = {},
   cssls = {},
-  qmlls = {},
+  qmlls = {
+    cmd = { "qmlls", "-E" },
+  },
 }
 for name, server in pairs(servers) do
   server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
