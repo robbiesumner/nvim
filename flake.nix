@@ -11,46 +11,28 @@
   }: let
     supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    mkNeovim = import ./lib/mkNeovim.nix;
+    nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
   in {
     packages = forAllSystems (
-      system: {
-        default = mkNeovim {
-          inherit (nixpkgs.legacyPackages.${system}) pkgs lib;
-          inherit self;
-          supportJupyter = true;
-        };
-        noJupyter = mkNeovim {
-          inherit (nixpkgs.legacyPackages.${system}) pkgs lib;
-          inherit self;
-          supportJupyter = false;
+      system: let
+        pkgs = nixpkgsFor.${system};
+        dependencies = import ./nix/dependencies.nix {inherit pkgs;};
+        plugins = import ./nix/plugins.nix {inherit pkgs;};
+      in {
+        default = import ./nix/neovim.nix {
+          inherit pkgs dependencies plugins;
+          src = self;
         };
       }
     );
-    homeModules.nvim = {
-      config,
-      lib,
-      pkgs,
-      ...
-    }: let
-      cfg = config.programs.configured-neovim;
-    in {
-      options.programs.configured-neovim = {
-        enable = lib.mkEnableOption "My configured neovim";
-        supportJupyter = lib.mkOption {
-          type = lib.types.bool;
-          default = false;
-        };
+    apps = forAllSystems (system: {
+      default = {
+        type = "app";
+        program = "${self.packages.${system}.default}/bin/nvim";
       };
-      config = lib.mkIf cfg.enable {
-        home.packages = [
-          (mkNeovim {
-            inherit pkgs lib self;
-            inherit (cfg) supportJupyter;
-          })
-        ];
-        home.sessionVariables.EDITOR = "nvim";
-      };
+    });
+    homeManagerModules.neovim = import ./nix/hm.nix {
+      src = self;
     };
   };
 }

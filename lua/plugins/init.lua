@@ -9,6 +9,3 @@ require("plugins.typst")
 require("plugins.conform")
 require("plugins.fzf")
 require("plugins.which-key")
-if vim.g.jupyter then
-  require("plugins.molten")
-end
