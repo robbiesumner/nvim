@@ -26,18 +26,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 local servers = {
   lua_ls = {},
-  pyright = {
-    settings = {
-      python = {
-        analysis = {
-          diagnosticSeverityOverrides = {
-            -- for notebooks: leaving value at the end to be printed
-            reportUnusedExpression = "none",
-          },
-        },
-      },
-    },
-  },
+  pyright = {},
   nixd = {},
   texlab = {},
   tinymist = {},
@@ -84,9 +73,4 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-require("blink.cmp").setup({
-  sources = {
-    default = { "lsp", "path", "snippets" },
-    signature = { enabled = true },
-  },
-})
+require("blink.cmp").setup({ keymap = { preset = "default" }, signature = { enabled = true } })
