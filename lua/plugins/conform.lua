@@ -10,6 +10,14 @@ conform.setup({
     tex = { "latexindent" },
     bib = { "bibtex-tidy" },
     typst = { "typstyle" },
+
+    javascript = { "prettier" },
+    typescript = { "prettier" },
+    svelte = { "prettier" },
+    css = { "prettier" },
+    html = { "prettier" },
+    json = { "prettier" },
+    markdown = { "prettier" },
   },
   format_on_save = {
     lsp_format = "fallback",

@@ -37,7 +37,12 @@ local servers = {
   qmlls = {
     cmd = { "qmlls", "-E" },
   },
+  svelte = {},
+  ts_ls = {},
+  tailwindcss = {},
+  eslint = {},
 }
+
 for name, server in pairs(servers) do
   server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
   vim.lsp.config(name, server)

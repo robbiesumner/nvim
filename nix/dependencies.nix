@@ -14,6 +14,10 @@ with pkgs; [
   docker-compose-language-service
   vscode-css-languageserver
   qt6.qtdeclarative
+  svelte-language-server
+  typescript-language-server
+  tailwindcss-language-server
+  vscode-langservers-extracted
 
   # formatter
   stylua
@@ -21,6 +25,7 @@ with pkgs; [
   ruff
   bibtex-tidy
   typstyle
+  prettier
 
   # tools
   (texliveMedium.withPackages (p: with p; [exam needspace]))
