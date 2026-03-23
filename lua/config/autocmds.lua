@@ -5,3 +5,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = vim.api.nvim_create_augroup("term-open", { clear = true }),
+  callback = function()
+    -- turn off line numbers
+    vim.opt.relativenumber = false
+    vim.opt.number = false
+  end,
+})
