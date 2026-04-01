@@ -11,8 +11,8 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- terminal
 vim.keymap.set(
   "n",
-  "<leader>t",
+  "<leader><CR>",
   require("util.terminal").toggle_floating_terminal,
-  { desc = "Open floating [T]erminal" }
+  { desc = "Open floating Terminal" }
 )
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

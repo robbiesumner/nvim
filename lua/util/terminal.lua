@@ -1,7 +1,7 @@
 local M = {}
 
 local state = {
-  buf = -1,
+  buf = -1, -- invalid buf and win
   win = -1,
 }
 
@@ -32,7 +32,6 @@ local function create_floating_window(opts)
     height = win_height,
     row = row,
     col = col,
-    border = "rounded",
   })
 
   return { buf = buf, win = win }
@@ -42,7 +41,7 @@ function M.toggle_floating_terminal()
   if not vim.api.nvim_win_is_valid(state.win) then
     state = create_floating_window({ buf = state.buf })
     if vim.bo[state.buf].buftype ~= "terminal" then
-      vim.cmd.term()
+      vim.cmd.terminal()
     end
   else
     vim.api.nvim_win_hide(state.win)
