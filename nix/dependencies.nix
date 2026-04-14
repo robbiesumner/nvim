@@ -33,7 +33,8 @@ with pkgs; [
   zathura
   typst
   lilypond-with-fonts
-  mpv
   fluidsynth
+  soundfont-fluid
   ffmpeg
+  mpv
 ]
