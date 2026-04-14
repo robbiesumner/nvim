@@ -14,4 +14,5 @@ with pkgs.vimPlugins; [
   image-nvim
   vimtex
   typst-preview-nvim
+  nvim-lilypond-suite
 ]

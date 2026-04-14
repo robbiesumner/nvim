@@ -32,4 +32,7 @@ with pkgs; [
   biber
   zathura
   typst
+  lilypond
+  mpv
+  ghostscript
 ]
