@@ -35,4 +35,5 @@ with pkgs; [
   lilypond-with-fonts
   mpv
   fluidsynth
+  ffmpeg
 ]
