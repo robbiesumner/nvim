@@ -34,5 +34,5 @@ with pkgs; [
   typst
   lilypond-with-fonts
   mpv
-  ghostscript
+  fluidsynth
 ]
