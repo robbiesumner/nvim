@@ -32,7 +32,7 @@ with pkgs; [
   biber
   zathura
   typst
-  lilypond
+  lilypond-with-fonts
   mpv
   ghostscript
 ]
