@@ -15,4 +15,5 @@ with pkgs.vimPlugins; [
   vimtex
   typst-preview-nvim
   nvim-lilypond-suite
+  blink-cmp-dictionary
 ]

@@ -78,4 +78,25 @@ vim.lsp.config("lua_ls", {
   },
 })
 
-require("blink.cmp").setup({ keymap = { preset = "default" }, signature = { enabled = true } })
+require("blink.cmp").setup({
+  keymap = { preset = "default" },
+  signature = { enabled = true },
+  sources = {
+    default = { "dictionary", "lsp", "path", "snippets", "buffer" },
+    providers = {
+      dictionary = {
+        module = "blink-cmp-dictionary",
+        name = "Dict",
+        min_keyword_length = 2,
+        max_items = 8,
+        opts = {
+          dictionary_files = function()
+            if vim.bo.filetype == "lilypond" then
+              return vim.fn.glob(vim.fn.expand("$LILYDICTPATH") .. "/*", true, true)
+            end
+          end,
+        },
+      },
+    },
+  },
+})
